@@ -16,4 +16,5 @@ http://localhost:9090/swagger-ui.html
 admin credentials:
 
 admin@gmail.com
-admin123# pic-app
+admin123
+
