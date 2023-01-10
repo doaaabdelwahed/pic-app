@@ -1,0 +1,17 @@
+docker build -t  plogapp:snapshotv1 .
+
+$ docker container run -d -p 8090:8080 --name plog-container plogapp:snapshotv1
+
+
+docker logs plog-container
+docker network create -d bridge my-sql-network
+
+
+docker run --name mysqldb --network my-sql-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=test -e MYSQL_USER=root -e MYSQL_PASSWORD=root -d mysql:5.7
+
+docker logs -f mysqldb 
+
+docker restart plog-container
+
+
+docker exec -it mysqldb  bash
